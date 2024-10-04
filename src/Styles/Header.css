@@ -1,0 +1,65 @@
+.C1-Header {
+  display: flex;
+  height: 5rem;
+  flex-wrap: wrap;
+  place-content: center;
+  background-color: #000;
+  gap: 1rem;
+  padding-right: 1rem;
+
+  .left {
+    img {
+      max-width: 13rem;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-content: center;
+
+    input {
+      border: none;
+      outline: none;
+      padding: .3rem .8rem;
+      height: 100%;
+    }
+
+    input[type=text] {
+      border-radius: 999px 0 0 999px;
+    }
+
+    input[type=submit] {
+      border-radius: 0 999px 999px 0;
+      background: conic-gradient(from var(--g, 0deg) at 50% 50% in oklch longer hue, oklch(70% .3 0) 0%, oklch(70% .3 0) 100%);
+
+
+      &:hover {
+        animation: animar .3s ease-in-out alternate both;
+      }
+    }
+  }
+}
+
+@keyframes animar {
+  0% {
+    --g: 0deg;
+  }
+
+  100% {
+    --g: 180deg;
+  }
+}
+
+@property --g {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@media (width <=1000px) and (orientation: portrait) {
+  header {
+    img {
+      display: none;
+    }
+  }
+}
